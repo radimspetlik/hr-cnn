@@ -18,8 +18,9 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Activate the environment with `source activate hr-cnn`.
 1. Install packages.
 	1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.
-	1. Install _docopt_ `conda install docopt`.
+	1. Install _docopt_ with `conda install docopt`.
 1. Clone the repo to a directory of your preference with `git clone git@github.com:radimspetlik/hr-cnn.git`.
+1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.
 1. Run the test script with `python hr-cnn/test.py`. The network will evaluate a short sequence attached in the repo. You should get the following results:
 
 ```

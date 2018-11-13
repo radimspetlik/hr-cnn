@@ -1,6 +1,5 @@
 import json
 import numpy as np
-import cv2
 import os
 import logging
 import random
@@ -143,101 +142,8 @@ class DatasetWorker(object):
         return [file.replace('\n', '') for file in file.readlines()]
 
     @staticmethod
-    def check_dataset_by_exporting_to_video(db_name, subset='all', fps=0.0, video_width_height=(0, 0)):
-        from cmp.nrppg.cnn.dataset.FaceDatasetFFmpegVideo import FaceDatasetFFmpegVideo
-        from cmp.nrppg.torch.utils import opencv_colordim_switch
-        hr_directory = os.path.join('/datagrid', 'personal', 'spetlrad', 'hr')
-        db_path = os.path.join(hr_directory, 'db', db_name)
-
-        height = 192
-        width = 128
-
-        fourcc = cv2.VideoWriter_fourcc('M', 'J', 'P', 'G')
-        video_writer = cv2.VideoWriter(filename=os.path.join(db_path, 'check.avi'), fourcc=fourcc, fps=fps,
-                                       frameSize=(width, height))
-
-        file_list = DatasetWorker.prepare_list_of_files(hr_directory, db_name, subset)
-
-        for file in file_list:
-            file = file.replace('\n', '')
-
-            bboxes = PureDatasetWorker.load_bboxes(os.path.join(hr_directory, 'db', db_name, 'bbox', file + '.face'))
-            faceDB = FaceDatasetFFmpegVideo(os.path.join(db_path, file + '.avi'), None, fps, 500, video_width_height, bboxes)
-
-            frame_count = int(faceDB.length)
-            for frame_id in range(frame_count):
-                opencv_img = opencv_colordim_switch(faceDB.data[frame_id].transpose(1, 2, 0))
-                font = cv2.FONT_HERSHEY_SIMPLEX
-                cv2.putText(opencv_img, file.replace('/data', ''), (10, 175), font, 1, (255, 255, 255), 1, cv2.LINE_AA)
-                video_writer.write(opencv_img)
-
-        video_writer.release()
-
-    @staticmethod
-    def convert_fase_sequence_to_single_png():
-        path = '/datagrid/personal/spetlrad/hr/db/ecg-fitness/'
-        files = os.listdir(path + 'ecf-all/')
-        dpi = 72
-        dpmm = dpi / 2.52
-        width_mm = 17
-        width_px = int(width_mm * dpmm)
-        height_px = int((float(width_px)/16.0)*9.0)
-        images_per_line = 10
-        line_width_px = width_px * images_per_line
-        lines = 200 / images_per_line
-        empty_image = np.zeros((height_px * lines, line_width_px, 3), dtype='uint8')
-        for file_id, file in enumerate(files):
-            im = cv2.imread(path + 'ecf-all/' + file)
-            im = cv2.resize(im, (width_px, height_px))
-            xpos = file_id % images_per_line
-            ypos = int(file_id / images_per_line)
-            empty_image[ypos*height_px:(ypos+1)*height_px, xpos*width_px:(xpos+1)*width_px, :] = im
-
-        cv2.imwrite(path + 'all.png', empty_image)
-
-    @staticmethod
-    def extract_face_sequence_to_png(db_name, subset, fps, video_width_height, frame_range, desired_video=None):
-        from cmp.nrppg.cnn.dataset.FaceDatasetFFmpegVideo import FaceDatasetFFmpegVideo
-        from cmp.nrppg.torch.utils import opencv_colordim_switch
-        import glob
-
-        hr_directory = os.path.join('/datagrid', 'personal', 'spetlrad', 'hr')
-        db_path = os.path.join(hr_directory, 'db', db_name)
-
-        file_list = DatasetWorker.prepare_list_of_files(hr_directory, db_name, subset)
-
-        for file in file_list:
-            file = file.replace('\n', '')
-            if desired_video is not None and desired_video not in file:
-                continue
-
-            if db_name == Dataset.HCI:
-                file += '/' + os.path.basename(glob.glob(os.path.join(db_path, file, '*.avi'))[0])[:-4]
-
-            #bboxes = PureDatasetWorker.load_bboxes(os.path.join(hr_directory, 'db', db_name, 'bbox', file + '.face'))
-            bboxes = None
-            faceDB = FaceDatasetFFmpegVideo(os.path.join(db_path, file + '.avi'), None, fps, 500, video_width_height, bboxes)
-
-            img_path = os.path.join(hr_directory, 'db', db_name, 'intro-check')
-            if not os.path.isdir(img_path):
-                os.mkdir(img_path)
-
-            frame_count = int(faceDB.length)
-            for frame_id in frame_range:
-                opencv_img = opencv_colordim_switch(faceDB.data[frame_id].transpose(1, 2, 0))
-                cv2.imwrite(os.path.join(img_path, '%s-%010d.png' % (file.replace('/','-'), frame_id)), opencv_img)
-
-
-    @staticmethod
-    def get_extractor_outputs(db_name):
-        experiments_directory = DatasetWorker.get_experiments_directory()
-        extractor_model_name = '20-03-2018_00-56-42-838138_arch=FaceHRNet09V4ELURGB_lr=1E-04_min-std=1E-01_em-after=1002_batch-size=600' \
-                               + '_obj=snr_scale-factor=0E+00_rotation-augment_batch-lightness-jitter=pm50_epoch=301_snr_median_best'
-        return os.path.join(experiments_directory, 'runs-%s-eval' % db_name, '%s_%s.data' % (db_name, extractor_model_name))
-
-    @staticmethod
     def get_hr_directory():
-        return os.path.join('/datagrid', 'personal', 'spetlrad', 'hr')
+        return os.path.join('data')
 
     @staticmethod
     def get_experiments_directory():

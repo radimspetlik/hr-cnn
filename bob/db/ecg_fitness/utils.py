@@ -6,7 +6,7 @@
 import os
 import numpy
 import bob.io.video
-import bob.ip.draw
+# import bob.ip.draw
 import detect_peaks
 
 
@@ -132,9 +132,10 @@ def annotate_video(video, annotations, output, thickness=3,
           framerate=video.frame_rate, codec=video.codec_name)
   for k, frame in enumerate(video):
     bb = annotations.get(k)
-    if bb is not None:
-      for t in range(thickness):
-        bob.ip.draw.box(frame, bb.topleft, bb.size, color)
+    raise "You are not supposed to run this!"
+    # if bb is not None:
+    #   for t in range(thickness):
+    #     bob.ip.draw.box(frame, bb.topleft, bb.size, color)
     writer.append(frame)
   del writer
 

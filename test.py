@@ -12,7 +12,7 @@ def perform_experiments(database, protocol='all', qf=None):
     __logging_format__ = '[%(levelname)s] %(message)s'
     logging.basicConfig(format=__logging_format__)
     logger = logging.getLogger("cnn-experiments_log")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(logging.DEBUG)
 
     logger.info('Performing experiments on %s database, protocol %s.' % (database, protocol))
 

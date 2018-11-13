@@ -28,7 +28,7 @@ class ModelLoader(object):
 
         # Let's use more GPU!
         if use_gpu and torch.cuda.device_count() > 1:
-            logger.info("Let's use", torch.cuda.device_count(), "GPUs!")
+            logger.info("Let's use %d GPUs!" % torch.cuda.device_count())
             model = torch.nn.DataParallel(model)
             torch.cuda.manual_seed(0)
             torch.cuda.manual_seed_all(0)

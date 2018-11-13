@@ -21,7 +21,7 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Change directory to the clonned repo.
 1. Install packages.
 	1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.	
-	1. Run 'python -u install.py' *OR* perform the following procedure:
+	1. Run `conda env update --file environment.yml` *OR* perform the following procedure:
 		1. Install _docopt_ with `conda install docopt`.
 		1. Install _scipy_ with `conda install scipy`
 		1. Install _h5py_ with `conda install h5py`

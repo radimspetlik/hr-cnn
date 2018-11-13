@@ -1,0 +1,10 @@
+name: hr-cnn            # default is root
+channels:
+- defaults
+dependencies:         # everything under this, installed by conda
+- docopt
+- scipy
+- h5py
+- opencv
+- boost=1.65.1
+- bob.blitz

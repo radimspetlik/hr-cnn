@@ -18,17 +18,19 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Create a _Python 2.7_ environment _hr-cnn_ with `conda create -n hr-cnn python=2.7`.
 1. Activate the environment with `source activate hr-cnn`.
 1. Install packages.
-	1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.
-	1. Install _docopt_ with `conda install docopt`.
-	1. Install _scipy_ with `conda install scipy`
-	1. Install _h5py_ with `conda install h5py`
-	1. Install _opencv_ with `conda install opencv`
-	1. Install _boost 1.65.1_ with `conda install boost=1.65.1`
-	1. Install _bob.blitz_ with `conda install bob.blitz`
+	1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.	
+	1. Run 'python -u install.py' *OR* perform the following procedure:
+		1. Install _docopt_ with `conda install docopt`.
+		1. Install _scipy_ with `conda install scipy`
+		1. Install _h5py_ with `conda install h5py`
+		1. Install _opencv_ with `conda install opencv`
+		1. Install _boost 1.65.1_ with `conda install boost=1.65.1`
+		1. Install _bob.blitz_ with `conda install bob.blitz`
 1. Clone the repo to a directory of your preference with `git clone git@github.com:radimspetlik/hr-cnn.git`.
 1. Add the data.
 	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.
 	1. Copy the contents of the `bbox` directory (distributed in the 7zipped ECG Fitness database) to `bob/db/ecg_fitness/data/bbox/`.
+	1. Copy the contents of the `test_h5_faces.7zip` to `data\experiments\cnn\ecg-fitness-face-192x128\15\01\`.
 1. Run the test script with `python hr-cnn/test.py`. The network will evaluate a short sequence attached in the repo. You should get the following results:
 
 ```

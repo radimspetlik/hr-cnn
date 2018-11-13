@@ -206,8 +206,6 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
             logger.info("Skipping output file `%s': already exists, use --overwrite to force an overwrite", output['whole'])
             continue
 
-        computed_count += 1
-
         # load the filtered color signals of shape (3, nb_frames)
         logger.debug("Frequency analysis of color signals from `%s'...", obj.path)
         filtered_file = obj.make_path(args['--indir'], '.hdf5')
@@ -216,6 +214,8 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
         except (IOError, RuntimeError) as e:
             logger.warning("Skipping file `%s' (no color signals file available)", obj.path)
             continue
+
+        computed_count += 1
 
         # find the max of the frequency spectrum in the range of interest
         signal_in_torch = Variable(torch.FloatTensor(signal)).cuda()
@@ -266,10 +266,6 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
             else:
                 hrs = numpy.vstack((hrs, local_hr))
                 gts = numpy.vstack((gts, local_hr_gt))
-
-            if 'Parts' in metrics:
-                sq_errs['Parts'].append((local_hr - local_hr_gt) ** 2)
-                abs_errs['Parts'].append(abs(local_hr - local_hr_gt))
 
         if hrs is None:
             logger.warning('Skipping file %s (no HR signal available)')

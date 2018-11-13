@@ -7,8 +7,8 @@ This repo is being constructed. You can monitor the progress bellow.
 
 ## Progress
 - [x] Document the installation.
-- [ ] Convert models to a reasonable format.
-- [ ] Create public evaluation scripts.
+- [x] Convert models to a reasonable format.
+- [x] Create public evaluation scripts.
 - [ ] Create public learning scripts.
 
 ## Installation
@@ -31,10 +31,11 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Add the data.
 	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.
 	1. Copy the contents of the `bbox` directory (distributed in the 7zipped ECG Fitness database) to `bob/db/ecg_fitness/data/bbox/`.
-	1. Copy the contents of the `test_h5_faces.zip` to `data\experiments\cnn\ecg-fitness-face-192x128\15\01\`.
+	1. Copy the contents of the `test_h5_faces.zip` (available at https://goo.gl/9iw3LY) to `data\experiments\cnn\ecg-fitness-face-192x128\15\01\`.
 1. Run the test script with `python hr-cnn/test.py`. The network will evaluate two sequences attached in the repo. You should get the following results:
 
 ```
+[INFO]==================
 [INFO]=== STATISTICS-whole train ===
 [INFO]Root Mean Squared Error-whole = 8.38
 [INFO]Mean of error-rate percentage-whole = 0.09

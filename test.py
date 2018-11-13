@@ -56,7 +56,6 @@ def perform_experiments(database, protocol='all', qf=None):
     best_estimator_model['hci'] = '15-04-2018_15-27-56-539166_arch=SNREstimatorNetMonteCarlo_lr=1E-01_batch-size=600-hci_epoch=273_val_rmse_avg_best'
     best_estimator_model['ecg-fitness'] = '09-05-2018_09-52-57-210538_arch=SNREstimatorNetMonteCarlo_lr=1E-02_batch-size=300_fine-tuning_estimator_val_mae_best'
 
-    batch_size = 600
     extractor_model_name = best_extractor_model[extractor_model_trained_on_db]
     estimator_model_name = best_estimator_model[estimator_model_trained_on_db]
 
@@ -124,5 +123,6 @@ if __name__ == "__main__":
     models_dir = os.path.join(hr_directory, 'models')
 
     dataset = Dataset.ECG_FITNESS
+    batch_size = 600
 
     perform_experiments(dataset, 'test')

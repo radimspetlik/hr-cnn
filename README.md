@@ -31,8 +31,8 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Add the data.
 	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.
 	1. Copy the contents of the `bbox` directory (distributed in the 7zipped ECG Fitness database) to `bob/db/ecg_fitness/data/bbox/`.
-	1. Copy the contents of the `test_h5_faces.zip` (available at https://goo.gl/9iw3LY) to `data\experiments\cnn\ecg-fitness-face-192x128\15\01\`.
-1. Run the test script with `python hr-cnn/test.py`. The network will evaluate two sequences attached in the repo. You should get the following results:
+	1. Copy the contents of the `test_h5_faces.zip` (available at https://goo.gl/9iw3LY) to `data/experiments/cnn/ecg-fitness-face-192x128/15/01/`.
+1. Run the test script with `python test.py`. The network will evaluate two sequences attached in the repo. You should get the following results:
 
 ```
 [INFO]==================
@@ -50,8 +50,8 @@ We support only the following plug-and-play installation. You don't have to foll
 [INFO]Pearson's correlation-whole = nan
 [INFO]Pearson's correlation-whole significance = nan
 ```
-*WARNING* - the computations are very GPU memory demanding. Running the test script requires at least 12GB of GPU memory.
+*WARNING* - the computations are very GPU memory demanding. Running the test script requires at least 12GB of GPU memory. If you don't have enough memory, try changing the `batch_size` variable in the `test.py` script.
 
 ## bob.rppg.base
 
-My scripts are using a minimalist hackish version of https://pypi.org/project/bob.rppg.base/. I am sorry for that. Be sure to checkout their repo. However, everything you need from their repo to run my scripts is included in my repo.
+My scripts are using a minimalist hackish version of https://pypi.org/project/bob.rppg.base/. I am sorry for that. Be sure to checkout their repo. Just to be absolutely sure - everything you need from their repo to run my scripts is included in my repo.

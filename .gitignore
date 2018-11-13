@@ -1,10 +1,7 @@
 data/models/*
+*.pyc
+bob/db/ecg_fitness/data/bbox/*
 
 !.gitignore
 !.gitkeep
-
-# ...even if they are in subdirectories
-!*/
-!*/*/
-!*/*/*/
 

@@ -62,9 +62,6 @@ See '%(prog)s --help' for more information.
 import os
 import sys
 import pkg_resources
-import matplotlib
-matplotlib.use('agg')
-from matplotlib import pyplot
 import logging
 
 __logging_format__ = '[%(levelname)s] %(message)s'
@@ -117,39 +114,6 @@ def statistics(args, outdir, sq_err, errors, mean_error_percentage, inferred, gr
     stats_file.write(pearson_significance_text + "\n")
     stats_file.write(percentage_survived_text + "\n")
     stats_file.close()
-
-    if bool(args['--plot']):
-        # scatter plot
-        f = pyplot.figure()
-        ax = f.add_subplot(1, 1, 1)
-        ax.scatter(ground_truth, inferred)
-        ax.plot([40, 110], [40, 110], 'r--', lw=2)
-        pyplot.xlabel('Ground truth [bpm]')
-        pyplot.ylabel('Estimated heart-rate [bpm]')
-        ax.set_title('Scatter plot')
-        scatter_file = os.path.join(outdir, subset + additional_text + '-scatter.pdf')
-        f.savefig(scatter_file, bbox_inches='tight')
-        pyplot.close('all')
-
-        # histogram of error
-        f2 = pyplot.figure()
-        ax2 = f2.add_subplot(1, 1, 1)
-        ax2.hist(errors, bins=50, )
-        ax2.set_title('Distribution of the error')
-        distribution_file = os.path.join(outdir, subset + additional_text + '-error_histogram.pdf')
-        f2.savefig(distribution_file, bbox_inches='tight')
-        pyplot.close('all')
-
-        # distribution of HR
-        f3 = pyplot.figure()
-        ax3 = f2.add_subplot(1, 1, 1)
-        histoargs = {'bins': 50, 'alpha': 0.5, 'histtype': 'bar', 'range': (30, 120)}
-        pyplot.hist(ground_truth, label='Real HR', color='g', **histoargs)
-        pyplot.hist(inferred, label='Estimated HR', color='b', **histoargs)
-        pyplot.ylabel("Test set")
-        distribution_file = os.path.join(outdir, subset + additional_text + '-HR_distribution.pdf')
-        f3.savefig(distribution_file, bbox_inches='tight')
-        pyplot.close('all')
 
 
 def main(qf, metrics, user_input=None):

@@ -1,0 +1,10 @@
+data/models/*
+
+!.gitignore
+!.gitkeep
+
+# ...even if they are in subdirectories
+!*/
+!*/*/
+!*/*/*/
+

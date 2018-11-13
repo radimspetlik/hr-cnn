@@ -97,7 +97,6 @@ __logging_format__ = '[%(levelname)s] %(message)s'
 logging.basicConfig(format=__logging_format__, stream=sys.stdout)
 logger = logging.getLogger("extract_log")
 
-version = pkg_resources.require('bob.rppg.base')[0].version
 
 
 def main(extractor_model, rgb, job_id, jobs, user_input=None):
@@ -112,12 +111,12 @@ def main(extractor_model, rgb, job_id, jobs, user_input=None):
     prog = os.path.basename(sys.argv[0])
     completions = dict(
         prog=prog,
-        version=version,
+        version='custom bob.rppg.version',
     )
     args = docopt(
         __doc__ % completions,
         argv=arguments,
-        version='Signal extractor for videos (%s)' % version,
+        version='Signal extractor for videos (custom bob.rppg.version)',
     )
 
     # if the user wants more verbosity, lowers the logging level

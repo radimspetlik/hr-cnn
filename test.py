@@ -126,4 +126,4 @@ if __name__ == "__main__":
 
     dataset = Dataset.ECG_FITNESS
 
-    perform_experiments(dataset, 'all')
+    perform_experiments(dataset, 'test')

@@ -1,9 +1,6 @@
 # encoding: utf-8
 
 import numpy as np
-import matplotlib
-matplotlib.use('agg')
-import matplotlib.pyplot as plt
 from scipy.signal import butter, lfilter
 import os
 
@@ -229,39 +226,6 @@ class QRSDetectorOffline(object):
         with open(self.log_path, "wb") as fin:
             fin.write(b"timestamp,ecg_measurement,qrs_detected\n")
             np.savetxt(fin, self.ecg_data_detected, delimiter=",")
-
-    def plot_detection_data(self, show_plot=False):
-        """
-        Method responsible for plotting detection results.
-        :param bool show_plot: flag for plotting the results and showing plot
-        """
-        def plot_data(axis, data, title='', fontsize=10):
-            axis.set_title(title, fontsize=fontsize)
-            axis.grid(which='both', axis='both', linestyle='--')
-            axis.plot(data, color="salmon", zorder=1)
-
-        def plot_points(axis, values, indices):
-            axis.scatter(x=indices, y=values[indices], c="black", s=50, zorder=2)
-
-        plt.close('all')
-        fig, axarr = plt.subplots(6, sharex=True, figsize=(25, 18))
-
-        plot_data(axis=axarr[0], data=self.ecg_data_raw[:, 1], title='Raw ECG measurements')
-        plot_data(axis=axarr[1], data=self.filtered_ecg_measurements, title='Filtered ECG measurements')
-        plot_data(axis=axarr[2], data=self.differentiated_ecg_measurements, title='Differentiated ECG measurements')
-        plot_data(axis=axarr[3], data=self.squared_ecg_measurements, title='Squared ECG measurements')
-        plot_data(axis=axarr[4], data=self.integrated_ecg_measurements, title='Integrated ECG measurements with QRS peaks marked (black)')
-        plot_points(axis=axarr[4], values=self.integrated_ecg_measurements, indices=self.qrs_peaks_indices)
-        plot_data(axis=axarr[5], data=self.ecg_data_detected[:, 1], title='Raw ECG measurements with QRS peaks marked (black)')
-        plot_points(axis=axarr[5], values=self.ecg_data_detected[:, 1], indices=self.qrs_peaks_indices)
-
-        plt.tight_layout()
-        fig.savefig(self.plot_path)
-
-        if show_plot:
-            plt.show()
-
-        plt.close()
 
     """Tools methods."""
 

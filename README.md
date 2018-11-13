@@ -14,11 +14,13 @@ This repo is being constructed. You can monitor the progress bellow.
 ## Installation
 We support only the following plug-and-play installation. You don't have to follow the steps bellow, but it may happen that it will not work :( This setup should work regardless of the operation system (i.e. Windows and Linux is OK).
 1. Install _miniconda_ http://lmgtfy.com/?q=miniconda+install.
+1. Update _miniconda_ with `conda update -n base conda`.
 1. Create a _Python 2.7_ environment _hr-cnn_ with `conda create -n hr-cnn python=2.7`.
 1. Activate the environment with `source activate hr-cnn`.
 1. Install packages.
 	1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.
 	1. Install _docopt_ with `conda install docopt`.
+	1. Install _matplotlib_ with `conda install -c conda-forge matplotlib`
 1. Clone the repo to a directory of your preference with `git clone git@github.com:radimspetlik/hr-cnn.git`.
 1. Add the data.
 	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.

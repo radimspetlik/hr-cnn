@@ -9,7 +9,7 @@ import pkg_resources
 
 import bob.db.base
 import bob.io.base
-import bob.ip.facedetect
+# import bob.ip.facedetect
 import numpy as np
 
 import utils
@@ -173,7 +173,8 @@ class File(bob.db.base.File):
     if start_frame: data = data[start_frame:]
     if max_frames: data = data[:max_frames]
     for k, frame in enumerate(data):
-      bb, quality = bob.ip.facedetect.detect_single_face(frame)
+      # bb, quality = bob.ip.facedetect.detect_single_face(frame)
+      raise "You are not supposed to do that!"
       detections[k] = bb
     return detections
 

@@ -70,8 +70,6 @@ logger = logging.getLogger("perf_log")
 
 from docopt import docopt
 
-version = pkg_resources.require('bob.rppg.base')[0].version
-
 import numpy
 
 
@@ -125,12 +123,12 @@ def main(qf, metrics, user_input=None):
     prog = os.path.basename(sys.argv[0])
     completions = dict(
         prog=prog,
-        version=version,
+        version='custom bob.rppg.base',
     )
     args = docopt(
         __doc__ % completions,
         argv=arguments,
-        version='Results for videos (%s)' % version,
+        version='Results for videos (custom bob.rppg.base)',
         )
 
     # if the user wants more verbosity, lowers the logging level

@@ -73,7 +73,6 @@ from docopt import docopt
 version = pkg_resources.require('bob.rppg.base')[0].version
 
 import numpy
-import bob.io.base
 
 
 def statistics(args, outdir, sq_err, errors, mean_error_percentage, inferred, ground_truth, additional_text=''):

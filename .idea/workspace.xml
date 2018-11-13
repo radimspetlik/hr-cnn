@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d254bb47-3430-489a-827b-2501b879502f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/cmp/nrppg/experiments/extract_pulse_cnn.py" afterPath="$PROJECT_DIR$/cmp/nrppg/experiments/extract_pulse_cnn.py" />
+      <change beforePath="$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py" afterPath="$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/hr_cnn_github_repo$test.coverage" NAME="test Coverage Results" MODIFIED="1542120179275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="~/hr-cnn" />
+    <SUITE FILE_PATH="coverage/hr_cnn_github_repo$test.coverage" NAME="test Coverage Results" MODIFIED="1542120526370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="~/hr-cnn" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
@@ -28,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compute_performance.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compute_performance.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1099">
-              <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
+            <state relative-caret-position="379">
+              <caret line="183" column="21" lean-forward="false" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
               <folding>
                 <element signature="e#2268#2277#0" expanded="true" />
               </folding>
@@ -43,19 +45,33 @@
       <file leaf-file-name="frequency_analysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state relative-caret-position="631">
+              <caret line="340" column="12" lean-forward="false" selection-start-line="340" selection-start-column="12" selection-end-line="340" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FaceDatasetHdf5.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FaceDatasetHdf5.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/cnn/dataset/FaceDatasetHdf5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-              <folding />
+            <state relative-caret-position="480">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extract_pulse_cnn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/extract_pulse_cnn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+              <folding>
+                <element signature="e#3571#3581#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,9 +104,10 @@
         <option value="$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/clab/QRSDetectorOffline.py" />
-        <option value="$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py" />
         <option value="$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py" />
         <option value="$PROJECT_DIR$/cmp/nrppg/cnn/dataset/FaceDatasetHdf5.py" />
+        <option value="$PROJECT_DIR$/cmp/nrppg/experiments/extract_pulse_cnn.py" />
+        <option value="$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py" />
       </list>
     </option>
   </component>
@@ -135,6 +152,24 @@
               <item name="hr-cnn_github-repo" type="b2602c69:ProjectViewProjectNode" />
               <item name="hr-cnn_github-repo" type="462c0819:PsiDirectoryNode" />
               <item name="clab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hr-cnn_github-repo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hr-cnn_github-repo" type="462c0819:PsiDirectoryNode" />
+              <item name="cmp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hr-cnn_github-repo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hr-cnn_github-repo" type="462c0819:PsiDirectoryNode" />
+              <item name="cmp" type="462c0819:PsiDirectoryNode" />
+              <item name="nrppg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hr-cnn_github-repo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hr-cnn_github-repo" type="462c0819:PsiDirectoryNode" />
+              <item name="cmp" type="462c0819:PsiDirectoryNode" />
+              <item name="nrppg" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -276,10 +311,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-1089" width="1938" height="1098" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.40504938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="-1199" y="-446" width="1197" height="896" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.40504938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="-1199" y="-446" width="1197" height="896" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51701427" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -339,16 +375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1099">
-          <caret line="267" column="0" lean-forward="false" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
-          <folding>
-            <element signature="e#2268#2277#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clab/QRSDetectorOnline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -387,19 +413,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cmp/nrppg/cnn/dataset/FaceDatasetHdf5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/extract_pulse_cnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="18" column="35" lean-forward="false" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="e#3571#3581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="85" column="0" lean-forward="true" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state relative-caret-position="631">
+          <caret line="340" column="12" lean-forward="false" selection-start-line="340" selection-start-column="12" selection-end-line="340" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmp/nrppg/cnn/dataset/FaceDatasetHdf5.py">
+    <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="379">
+          <caret line="183" column="21" lean-forward="false" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="21" />
+          <folding>
+            <element signature="e#2268#2277#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

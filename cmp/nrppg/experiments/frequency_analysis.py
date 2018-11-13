@@ -339,7 +339,3 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
         numpy.save(stats_output, {'sq_errs': sq_errs, 'abs_errs': abs_errs})
 
     return 0
-
-
-if __name__ == '__main__':
-    main()

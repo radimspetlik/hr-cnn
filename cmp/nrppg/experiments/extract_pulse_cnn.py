@@ -81,25 +81,7 @@ import sys
 
 from cmp.nrppg.cnn.ModelLoader import ModelLoader
 
-sys_path = [
-    '/mnt/home.stud/spetlrad/cvut49-ppg/python/experiments.rppg.base',
-    '/mnt/home.stud/spetlrad/cvut49-ppg/python/experiments.rppg.base/eggs/gridtk-1.5.0-py3.6.egg',
-    '/mnt/home.stud/spetlrad/cvut49-ppg/python/experiments.rppg.base/eggs/setuptools-33.1.1-py3.6.egg',
-    '/mnt/home.stud/spetlrad/cvut49-ppg/python/experiments.rppg.base/eggs/Jinja2-2.10-py3.6.egg',
-    '/mnt/home.stud/spetlrad/cvut49-ppg/python/experiments.rppg.base/eggs/MarkupSafe-1.0-py3.6-linux-x86_64.egg',
-]
-for path in sys.path:
-    sys_path.append(path)
-sys.path[0:0] = sys_path
-if sys.version_info[:2] >= (3, 6):  # see: http://bugs.python.org/issue30167
-    _hack = str(sys.modules['__main__'].__loader__.__module__)
-    sys.modules['__main__'].__loader__.__module__ += '_'
-
 import site  # initializes site properly
-
-site.main()  # this is required for python>=3.4
-if sys.version_info[:2] >= (3, 6):  # restore original value just in case...
-    sys.modules['__main__'].__loader__.__module__ = _hack
 
 from docopt import docopt
 import torch
@@ -107,12 +89,8 @@ import torch.utils.data as torch_data
 from torch.autograd import Variable
 from cmp.nrppg.cnn.dataset.FaceDatasetHdf5 import FaceDatasetHdf5
 import numpy as np
-import bob.io.base
 import os.path
 import pkg_resources
-import matplotlib
-matplotlib.use('agg')
-from matplotlib import pyplot
 import logging
 
 __logging_format__ = '[%(levelname)s] %(message)s'
@@ -121,8 +99,6 @@ logger = logging.getLogger("extract_log")
 
 version = pkg_resources.require('bob.rppg.base')[0].version
 
-
-# torch.set_num_threads(12)
 
 def main(extractor_model, rgb, job_id, jobs, user_input=None):
     # Parse the command-line arguments
@@ -325,17 +301,6 @@ def main(extractor_model, rgb, job_id, jobs, user_input=None):
         # build the final pulse signal
         pulse = cnn_output
 
-        if bool(args['--plot']):
-            f, axarr = pyplot.subplots(1)
-            pyplot.plot(range(pulse.shape[0]), pulse, 'k')
-            pyplot.title("Pulse signal")
-            fig_filename = obj.make_path(args['--outdir'], '_pulse_signal.pdf')
-            if not os.path.exists(os.path.dirname(fig_filename)):
-                os.makedirs(os.path.dirname(fig_filename))
-                # bob.io.base.create_directories_safe(os.path.dirname(fig_filename))
-            # pyplot.savefig(fig_filename)
-            f.savefig(fig_filename, bbox_inches='tight')
-
         output_data = pulse
 
         # saves the data into an HDF5 file with a '.hdf5' extension
@@ -343,25 +308,3 @@ def main(extractor_model, rgb, job_id, jobs, user_input=None):
         if not os.path.exists(outdir): bob.io.base.create_directories_safe(outdir)
         bob.io.base.save(output_data, output_path)
         logger.info("Output file saved to `%s'...", output_path)
-
-
-if __name__ == '__main__':
-    hr_directory = os.path.join('/', 'datagrid', 'personal', 'spetlrad', 'hr')
-    models_dir = os.path.join(hr_directory, 'models', 'to_check')
-
-    best_extractor_model = {}
-    extractor_model_trained_on_db = 'pure'
-    best_extractor_model['pure'] = '20-03-2018_00-56-42-838138_arch=FaceHRNet09V4ELURGB_lr=1E-04_min-std=1E-01_em-after=1002_batch-size=600_obj=snr_scale-factor=0E+00_rotation-augment_batch-lightness-jitter=pm50_epoch=301_snr_median_best'
-
-    # continuing
-    extractor_model_name = best_extractor_model[extractor_model_trained_on_db]
-    extractor_model_path = os.path.join(models_dir, extractor_model_name)
-
-    job_id = 0
-    pool_size = 1
-
-    extractor_model, rgb = ModelLoader.load_model(extractor_model_path, 'extractor', True)
-    extractor_model.cuda()
-    extractor_model.eval()
-    # signals extraction
-    main(extractor_model, rgb, job_id, pool_size, None)

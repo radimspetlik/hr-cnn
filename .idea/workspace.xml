@@ -24,11 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compute_performance.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compute_performance.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1290">
-              <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+              <caret line="97" column="37" lean-forward="false" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
               <folding>
                 <element signature="e#2268#2277#0" expanded="true" />
               </folding>
@@ -36,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="frequency_analysis.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="frequency_analysis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="410">
@@ -296,14 +296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="98" column="7" lean-forward="false" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmp/nrppg/db/datasetworkers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -320,13 +312,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bob/db/base/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
-          <caret line="97" column="37" lean-forward="true" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
+          <caret line="97" column="37" lean-forward="false" selection-start-line="97" selection-start-column="37" selection-end-line="97" selection-end-column="37" />
           <folding>
             <element signature="e#2268#2277#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmp/nrppg/experiments/frequency_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="98" column="7" lean-forward="false" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

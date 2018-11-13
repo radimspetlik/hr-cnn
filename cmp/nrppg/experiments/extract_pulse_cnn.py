@@ -244,10 +244,11 @@ def main(extractor_model, rgb, job_id, jobs, user_input=None):
             if 0 <= int(args['--end']) < batch_idx * int(args['--batch-size']):
                 break
 
-            data, target = Variable(data, volatile=True), Variable(target, volatile=True)
-            if args['--use-gpu'] == 'True' and args['--enable-cuda'] == 'True':
-                data, target = data.cuda(async=True), target.cuda(async=True)
-            batch_output = extractor_model(data)
+            with torch.no_grad():
+                data, target = Variable(data), Variable(target)
+                if args['--use-gpu'] == 'True' and args['--enable-cuda'] == 'True':
+                    data, target = data.cuda(async=True), target.cuda(async=True)
+                batch_output = extractor_model(data)
             # print("[Batch %d] done..." % (batch_idx))
             if outputs is None:
                 Fs = faceDB.get_fps(batch_idx * int(args['--batch-size']))

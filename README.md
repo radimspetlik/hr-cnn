@@ -3,7 +3,7 @@ Spetlik, R., Franc, V., Cech, J. and Matas, J. (2018) Visual Heart Rate Estimati
 
 See http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/ for the original paper and the ECG-Fitness dataset.
 
-This repo is being constructed. Bellow, you can monitor the progress.
+This repo is being constructed. You can monitor the progress bellow.
 
 ## Progress
 - [ ] Document the installation.

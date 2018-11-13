@@ -13,7 +13,6 @@ from . import utils, driver
 from .file import File
 from .database import Database, SQLiteBaseDatabase, SQLiteDatabase, FileDatabase
 from .annotations import read_annotation_file
-__version__ = pkg_resources.require(__name__)[0].version
 
 
 def get_config():

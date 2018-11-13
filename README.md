@@ -51,3 +51,7 @@ We support only the following plug-and-play installation. You don't have to foll
 [INFO]Pearson's correlation-whole significance = nan
 ```
 *WARNING* - the computations are very GPU memory demanding. Running the test script requires at least 12GB of GPU memory.
+
+## bob.rppg.base
+
+My scripts are using a minimalist hackish version of https://pypi.org/project/bob.rppg.base/. I am sorry for that. Be sure to checkout their repo. However, everything you need from their repo to run my scripts is included in my repo.

@@ -84,13 +84,7 @@ logger = logging.getLogger("hr_log")
 
 from docopt import docopt
 
-version = pkg_resources.require('bob.rppg.base')[0].version
-
 import numpy
-import bob.io.base
-import matplotlib
-matplotlib.use('agg')
-from matplotlib import pyplot
 import torch
 from torch.autograd import Variable
 from cmp.nrppg.torch.TorchLossComputer import TorchLossComputer
@@ -106,12 +100,12 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
     prog = os.path.basename(sys.argv[0])
     completions = dict(
         prog=prog,
-        version=version,
+        version='custom bob.rppg.base',
     )
     args = docopt(
         __doc__ % completions,
         argv=arguments,
-        version='Frequency analysis for videos (%s)' % version,
+        version='Frequency analysis for videos (custom bob.rppg.base)',
     )
 
     # if the user wants more verbosity, lowers the logging level

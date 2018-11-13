@@ -2,6 +2,7 @@ name: hr-cnn            # default is root
 channels:
 - defaults
 dependencies:         # everything under this, installed by conda
+- python=2.7
 - docopt
 - scipy
 - h5py

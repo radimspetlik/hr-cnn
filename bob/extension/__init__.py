@@ -34,8 +34,6 @@ from .utils import uniq, uniq_paths, find_executable, find_library, construct_se
 from .cmake import CMakeListsGenerator
 from .rc_config import _loadrc
 
-__version__ = pkg_resources.require(__name__)[0].version
-
 def check_packages(packages):
   """Checks if the requirements for the given packages are satisfied.
 

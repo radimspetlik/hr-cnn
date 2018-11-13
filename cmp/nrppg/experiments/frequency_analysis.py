@@ -217,14 +217,6 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
             logger.warning("Skipping file `%s' (no color signals file available)", obj.path)
             continue
 
-        if bool(args['--plot']):
-            pyplot.clf()
-            pyplot.plot(range(signal.shape[0]), signal, 'g')
-            pyplot.title('Filtered signal')
-            fig_filename = obj.make_path(args['--outdir'], '_filtered_signal.png')
-            if not os.path.exists(os.path.dirname(fig_filename)): bob.io.base.create_directories_safe(os.path.dirname(fig_filename))
-            pyplot.savefig(fig_filename)
-
         # find the max of the frequency spectrum in the range of interest
         signal_in_torch = Variable(torch.FloatTensor(signal)).cuda()
 
@@ -283,45 +275,10 @@ def main(estimator_model, job_id, pool_size, metrics, hr_directory, fps, user_in
             logger.warning('Skipping file %s (no HR signal available)')
             continue
 
-        if 'PartsMean' in metrics:
-            sq_errs['PartsMean'].append((hrs.mean() - gt_hr_bpm) ** 2)
-            abs_errs['PartsMean'].append(abs(hrs.mean() - gt_hr_bpm))
-
-        if 'PartsMedian' in metrics:
-            sq_errs['PartsMedian'].append((numpy.median(hrs) - gt_hr_bpm) ** 2)
-            abs_errs['PartsMedian'].append(abs(numpy.median(hrs) - gt_hr_bpm))
-
-        # arg_max_hr = TorchLossComputer.get_arg_whole_max_hr(signal_in_torch, float(args['--framerate']), cuda=True)
-        # hr = float(arg_max_hr.data)
-
-        # signal = Variable(torch.from_numpy(signal).type(torch.FloatTensor))
-        # exp_hr, arg_max_hr = TorchLossComputer.compute_prediction_interval(signal, float(args['--framerate']),
-        #                                                                    float(args['--prediction-interval-lambda']), plot=False,
-        #                                                                    cuda=False)
-        # hr = exp_hr
-
         logger.info("Heart rate = {0}".format(hr))
-
-        # if bool(args['--plot']):
-        #     from matplotlib import pyplot
-        #     pyplot.semilogy(green_f, green_psd, 'g')
-        #     xmax, xmin, ymax, ymin = pyplot.axis()
-        #     pyplot.vlines(green_f[range_of_interest[max_idx]], ymin, ymax, color='red')
-        #     pyplot.title('Power spectrum of the signal (HR = {0:.1f})'.format(hr))
-        #     fig_filename = obj.make_path(plot_path, '_psd.png')
-        #     if not os.path.exists(os.path.dirname(fig_filename)): experiments.io.base.create_directories_safe(os.path.dirname(fig_filename))
-        #     pyplot.savefig(fig_filename)
 
         output_data = {}
         output_data['whole'] = numpy.array([hr], dtype='float64')
-        if 'am' in metrics:
-            output_data['am'] = numpy.array([hr_am], dtype='float64')
-        if 'Parts' in metrics:
-            output_data['Parts'] = numpy.array([hrs, gts], dtype='float64')
-        if 'PartsMean' in metrics:
-            output_data['PartsMean'] = numpy.array([hrs.mean()], dtype='float64')
-        if 'PartsMedian' in metrics:
-            output_data['PartsMedian'] = numpy.array([numpy.median(hrs)], dtype='float64')
 
         # saves the data into an HDF5 file with a '.hdf5' extension
         for metric in metrics:

@@ -22,6 +22,8 @@ We support only the following plug-and-play installation. You don't have to foll
 	1. Install _docopt_ with `conda install docopt`.
 	1. Install _scipy_ with `conda install scipy`
 	1. Install _h5py_ with `conda install h5py`
+	1. Install _opencv_ with `conda install opencv`
+	1. Install _boost 1.65.1_ with `conda install boost=1.65.1`
 1. Clone the repo to a directory of your preference with `git clone git@github.com:radimspetlik/hr-cnn.git`.
 1. Add the data.
 	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.

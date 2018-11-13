@@ -38,7 +38,6 @@ def perform_experiments(database, protocol='all', qf=None):
     start_end = ''  # ''--start 306 --end 2136'
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    bin_folder = os.path.join(current_dir, 'experiments.rppg.base/bin/')
     db_dir = os.path.join(hr_directory, 'db', str(database))
 
     best_extractor_model = {}

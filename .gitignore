@@ -1,5 +1,6 @@
 data/models/*
 *.pyc
+*.h5
 bob/db/ecg_fitness/data/bbox/*
 
 !.gitignore

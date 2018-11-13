@@ -121,7 +121,7 @@ def perform_experiments(database, protocol='all', qf=None):
 
 
 if __name__ == "__main__":
-    hr_directory = os.path.join('~', 'hr-cnn', 'data')
+    hr_directory = os.path.join('data')
     models_dir = os.path.join(hr_directory, 'models')
 
     dataset = Dataset.ECG_FITNESS

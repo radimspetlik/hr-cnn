@@ -61,7 +61,6 @@ See '%(prog)s --help' for more information.
 
 import os
 import sys
-import pkg_resources
 import logging
 
 __logging_format__ = '[%(levelname)s] %(message)s'

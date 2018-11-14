@@ -9,3 +9,4 @@ dependencies:         # everything under this, installed by conda
 - opencv
 - boost=1.65.1
 - bob.blitz
+- lmdb-python

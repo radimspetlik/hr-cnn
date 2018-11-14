@@ -31,6 +31,7 @@ We support only the following plug-and-play installation. You don't have to foll
 	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.
 	1. Copy the contents of the `bbox` directory (distributed in the 7zipped ECG Fitness database or available at https://goo.gl/aXDQiy) to `bob/db/ecg_fitness/data/bbox/`.
 	1. Copy the contents of the `test_h5_faces.zip` (available at https://goo.gl/9iw3LY) to `data/experiments/cnn/ecg-fitness-face-192x128/15/01/`.
+	1. Copy the contents of the `ecg-fitness_lmdb.zip` (availabe at https://goo.gl/MFLXH2) to `data/db`.
 1. Run the _evaluation_ test script with `python test-evaluation.py`. The network will evaluate two sequences attached in the repo. You should get the following results:
 ```
 [INFO]==================
@@ -49,7 +50,17 @@ We support only the following plug-and-play installation. You don't have to foll
 [INFO]Pearson's correlation-whole significance = nan
 ```
 *WARNING* - the computations are very GPU memory-demanding. Running the test script requires at least 12GB of GPU memory. If you don't have enough memory, try changing the `batch_size` variable in the `test.py` script.	
-
+1. Run the _extractor training_ test script with `python -u test-extractor-training.py --plot-after 10 --batch-size 300 --epochs 2 --lr 0.0001 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --net-architecture 'FaceHRNet09V4ELURGB'`. You should get the follwing results:
+```
+[INFO][0000][TRN] 5.294248 MAE: 39.3 MSE: 2127.2, 7056.0 (6s)
+[INFO][0000][VAL] 5.288296 MAE: 27.8 MSE: 1185.5, 3249.0
+[INFO][0001][TRN] 5.290246 MAE: 28.2 MSE: 1237.2, 4624.0 (6s)
+[INFO][0001][VAL] 5.285192 MAE: 30.4 MSE: 1322.6, 3249.0
+[INFO][0002][TRN] 5.283029 MAE: 24.2 MSE: 1131.5, 3844.0 (6s)
+[INFO][0002][VAL] 5.274898 MAE: 17.2 MSE: 781.6, 2601.0
+[INFO]Succesfully finished...
+```
+*WARNING* - the scripts assume that the batch size corresponds to a sample size with which the LMDB dataset was created - in our case, this is 300 frames per sample. 
 
 ## bob.rppg.base
 

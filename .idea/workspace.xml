@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d254bb47-3430-489a-827b-2501b879502f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py" afterPath="$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/test-training.py" afterPath="$PROJECT_DIR$/test-extractor-training.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/hr_cnn_github_repo$test_training.coverage" NAME="test-training Coverage Results" MODIFIED="1542188241811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/hr_cnn_github_repo$test_training.coverage" NAME="test-training Coverage Results" MODIFIED="1542188268077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/hr_cnn_github_repo$test.coverage" NAME="test Coverage Results" MODIFIED="1542127786606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="~/hr-cnn" />
   </component>
   <component name="FileEditorManager">
@@ -29,8 +30,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test-training.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test-training.py">
+      <file leaf-file-name="test-extractor-training.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test-extractor-training.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="130" column="82" lean-forward="false" selection-start-line="130" selection-start-column="82" selection-end-line="130" selection-end-column="82" />
@@ -42,8 +43,8 @@
       <file leaf-file-name="TorchLossComputer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="182" column="117" lean-forward="false" selection-start-line="182" selection-start-column="117" selection-end-line="182" selection-end-column="117" />
+            <state relative-caret-position="349">
+              <caret line="179" column="19" lean-forward="false" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -155,7 +156,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -168,7 +169,21 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="hr-cnn_github-repo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hr-cnn_github-repo" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -238,7 +253,7 @@
           </list>
         </option>
       </PathMappingSettings>
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-training.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\jarmi\ownCloud\Projects\cvut49-ppg\hr-cnn_github-repo\test-extractor-training.py" />
       <option name="PARAMETERS" value="--plot-after 10 --batch-size 300 --epochs 2 --lr 0.0001 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --net-architecture 'FaceHRNet09V4ELURGB'" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -351,7 +366,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="-1199" y="509" width="1198" height="921" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.399137" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="-1199" y="509" width="1198" height="921" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -386,7 +401,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-training.py">
+    <entry file="file://$PROJECT_DIR$/test-extractor-training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3480">
           <caret line="131" column="100" lean-forward="false" selection-start-line="131" selection-start-column="100" selection-end-line="131" selection-end-column="100" />
@@ -438,7 +453,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-training.py">
+    <entry file="file://$PROJECT_DIR$/test-extractor-training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3480">
           <caret line="131" column="100" lean-forward="true" selection-start-line="131" selection-start-column="100" selection-end-line="131" selection-end-column="100" />
@@ -787,7 +802,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test-training.py">
+    <entry file="file://$PROJECT_DIR$/test-extractor-training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="130" column="82" lean-forward="false" selection-start-line="130" selection-start-column="82" selection-end-line="130" selection-end-column="82" />
@@ -797,8 +812,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="182" column="117" lean-forward="false" selection-start-line="182" selection-start-column="117" selection-end-line="182" selection-end-column="117" />
+        <state relative-caret-position="349">
+          <caret line="179" column="19" lean-forward="false" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="19" />
           <folding />
         </state>
       </provider>

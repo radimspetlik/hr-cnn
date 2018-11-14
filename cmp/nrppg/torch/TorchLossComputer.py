@@ -180,7 +180,7 @@ class TorchLossComputer(object):
             hr_target = hr_target.cuda(async=True)
 
         regularization_factor = (1.0 / regularization_factor)
-        return regularization_factor * F.cross_entropy(complex_absolute, hr_target.view((1)).type(torch.long)), \
+        return regularization_factor * F.cross_entropy(complex_absolute, hr_target.view((1)).type(torch.long)).view(1), \
                Variable(torch.cuda.FloatTensor([regularization_factor * (hr_target.data[0] - whole_max_idx.data[0]) ** 2])), \
                torch.abs(Variable(torch.cuda.FloatTensor([regularization_factor * (hr_target.data[0] - whole_max_idx.data[0])])))
 

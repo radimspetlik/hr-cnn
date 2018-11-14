@@ -65,7 +65,7 @@ We support only the following plug-and-play installation. You don't have to foll
 
 * Run the _alternative optimization training_ test script with `python -u test-alternative-training.py --plot-after 100 --batch-size 300 --epochs 2 --extractor-lr 0.00001 --estimator-lr 0.01 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --extractor-net-architecture 'FaceHRNet09V4ELURGB' --estimator-net-architecture 'SNREstimatorNetMonteCarlo' --extractor-model-path 'data/models/08-05-2018_23-04-07-384974_arch=FaceHRNet09V4ELURGB_lr=1E-05_batch-size=300_fine_tuning_extractor_val_mae_best' --estimator-model-path 'data/models/09-05-2018_09-52-57-210538_arch=SNREstimatorNetMonteCarlo_lr=1E-02_batch-size=300_fine-tuning_estimator_val_mae_best'`. You should get the following results:
 
-``
+```
 [INFO][0000][VAL] MAE: 9.3 RMSE: 9.7
 [INFO][0000] Training extractor
 [INFO][0000][TRN] MAE: 9.3 RMSE: 9.8 (6s)
@@ -77,7 +77,9 @@ We support only the following plug-and-play installation. You don't have to foll
 [INFO][0002][TRN] MAE: 9.5 RMSE: 10.4 (6s)
 [INFO][0002][VAL] MAE: 6.2 RMSE: 6.8
 [INFO]Succesfully finished...
-``
+```
+
+*WARNING* - the scripts assume that the batch size corresponds to a sample size with which the LMDB dataset was created - in our case, this is 300 frames per sample.
 
 ## What's next?
 

@@ -20,7 +20,7 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Activate the environment with `source activate hr-cnn`.
 1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.	
 1. Add the data.
-	1. Download the models from http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/models.zip and extract them to `data/models/`.
+	1. Download the models from https://goo.gl/nCdkBk and extract them to `data/models/`.
 	1. Copy the contents of the `bbox` directory (distributed in the 7zipped ECG Fitness database or available at https://goo.gl/aXDQiy) to `bob/db/ecg_fitness/data/bbox/`.
 	1. Copy the contents of the `test_h5_faces.zip` (available at https://goo.gl/9iw3LY) to `data/experiments/cnn/ecg-fitness-face-192x128/15/01/`.
 	1. Copy the contents of the `ecg-fitness_lmdb.zip` (availabe at https://goo.gl/MFLXH2) to `data/db`.

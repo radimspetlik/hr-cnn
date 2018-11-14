@@ -102,8 +102,8 @@ def train(extractor_model, estimator_model, extractor_optimizer, estimator_optim
 
         target = torch.median(target * 60.0).type(torch.FloatTensor).cuda()
 
-        train_abs_err = torch.abs(output - target)
-        train_sq_err = (output - target) ** 2
+        train_abs_err = (torch.abs(output - target)).view(1)
+        train_sq_err = ((output - target) ** 2).view(1)
 
         if len(train_sq_errs) == 0:
             train_sq_errs = train_sq_err

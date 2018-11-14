@@ -166,7 +166,7 @@ class TorchLossComputer(object):
     def cross_entropy_power_spectrum_loss(input, target, Fs, regularization_factor, cuda=True):
         input = input.view(1, -1)
         target = target.view(1, -1)
-        bpm_range = torch.arange(40, 240, dtype=torch.float)
+        bpm_range = torch.arange(40, 240, dtype=torch.double)
         if cuda:
             bpm_range = bpm_range.cuda(async=True)
 

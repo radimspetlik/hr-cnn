@@ -168,7 +168,7 @@ class TorchLossComputer(object):
         target = target.view(1, -1)
         bpm_range = torch.arange(40, 240)
 
-        hr_target = Variable((torch.median(target).data * 60.0) - bpm_range[0]).type(torch.LongTensor)
+        hr_target = Variable((torch.median(target).data * 60.0) - bpm_range[0]).type(torch.cuda.LongTensor)
         complex_absolute = TorchLossComputer.complex_absolute(input, Fs, bpm_range, cuda)
 
         whole_max_val, whole_max_idx = complex_absolute.view(-1).max(0)
@@ -178,8 +178,8 @@ class TorchLossComputer(object):
 
         regularization_factor = (1.0 / regularization_factor)
         return regularization_factor * F.cross_entropy(complex_absolute, hr_target), \
-               Variable(torch.FloatTensor([regularization_factor * (hr_target.data[0] - whole_max_idx.data[0]) ** 2])), \
-               torch.abs(Variable(torch.FloatTensor([regularization_factor * (hr_target.data[0] - whole_max_idx.data[0])])))
+               Variable(torch.cuda.FloatTensor([regularization_factor * (hr_target.data[0] - whole_max_idx.data[0]) ** 2])), \
+               torch.abs(Variable(torch.cuda.FloatTensor([regularization_factor * (hr_target.data[0] - whole_max_idx.data[0])])))
 
     @staticmethod
     def em_power_spectrum_loss(output, target, Fs, regularization_factor, min_loss_std, scale_factor, cuda=True, posteriors=None):

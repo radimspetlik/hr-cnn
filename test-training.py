@@ -123,8 +123,9 @@ def validate(model_to_validate, training_epoch):
     for batch_idx, (data, target) in enumerate(validation_loader):
         if cuda:
             data, target = data.cuda(async=True), target.cuda(async=True)
-        data, target = Variable(data, volatile=True), Variable(target, volatile=True)
-        output = model_to_validate(data)
+        with torch.no_grad():
+            data, target = Variable(data), Variable(target)
+            output = model_to_validate(data)
 
         Fs, regularization_factor = train_ds.get_fps_and_regularization_factor(batch_idx * int(args['--batch-size']))
         validation_loss, validation_rmse, validation_ae = TorchLossComputer.cross_entropy_power_spectrum_loss(output,

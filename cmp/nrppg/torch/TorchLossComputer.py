@@ -8,7 +8,7 @@ import torch.nn.functional as F
 class TorchLossComputer(object):
     @staticmethod
     def compute_complex_absolute_given_k(output, k, N, cuda):
-        two_pi_n_over_N = Variable(2 * math.pi * torch.arange(0, N), requires_grad=True) / N
+        two_pi_n_over_N = Variable(2 * math.pi * torch.arange(0, N, dtype=torch.double), requires_grad=True) / N
         hanning = Variable(torch.from_numpy(np.hanning(N)).type(torch.FloatTensor), requires_grad=True).view(1, -1)
         if cuda:
             k = k.cuda(async=True)

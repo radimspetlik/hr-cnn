@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d254bb47-3430-489a-827b-2501b879502f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/test-estimator-training.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/test-training.py" afterPath="$PROJECT_DIR$/test-extractor-training.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,12 +41,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TorchLossComputer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TorchLossComputer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="179" column="19" lean-forward="false" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="19" />
+            <state relative-caret-position="499">
+              <caret line="184" column="23" lean-forward="true" selection-start-line="184" selection-start-column="23" selection-end-line="184" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test-estimator-training.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test-estimator-training.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="258" column="73" lean-forward="false" selection-start-line="258" selection-start-column="73" selection-end-line="258" selection-end-column="73" />
+              <folding>
+                <element signature="e#0#2601#1" expanded="false" />
+                <element signature="e#2603#2640#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,6 +153,7 @@
         <option value="$PROJECT_DIR$/cmp/nrppg/experiments/compute_performance.py" />
         <option value="$PROJECT_DIR$/test-training.py" />
         <option value="$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py" />
+        <option value="$PROJECT_DIR$/test-estimator-training.py" />
       </list>
     </option>
   </component>
@@ -203,7 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test-training">
+  <component name="RunManager" selected="Python.test-training-estimator">
     <configuration name="test-evaluation" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -226,6 +241,35 @@
       </PathMappingSettings>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-evaluation.py" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <method>
+        <option name="RemoteToolBeforeRunTask" enabled="true" actionId="RemoteTool_External Tools_git" />
+      </method>
+    </configuration>
+    <configuration name="test-training-estimator" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="ssh://spetlrad@ritz.felk.cvut.cz:22/home.stud/spetlrad/miniconda3/envs/hr-cnn/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="hr-cnn_github-repo" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <PathMappingSettings>
+        <option name="pathMappings">
+          <list>
+            <mapping local-root="$PROJECT_DIR$" remote-root="/home.stud/spetlrad/deleteme/hr-cnn" />
+          </list>
+        </option>
+      </PathMappingSettings>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test-estimator-training.py" />
+      <option name="PARAMETERS" value="--plot-after 100 --batch-size 300 --epochs 2 --extractor-lr 0.00001 --estimator-lr 0.01 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_train-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_train-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_train-validation_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_train-validation_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --extractor-net-architecture 'FaceHRNet09V4ELURGB' --estimator-net-architecture 'SNREstimatorNetMonteCarlo' --extractor-model-path 'data/models/09-05-2018_12-51-53-078136_arch=FaceHRNet09V4ELURGB_lr=1E-05_batch-size=300_fine_tuning_extractor_val_mae_best' --estimator-model-path 'data/models/09-05-2018_09-52-57-210538_arch=SNREstimatorNetMonteCarlo_lr=1E-02_batch-size=300_fine-tuning_estimator_val_mae_best'" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -324,9 +368,10 @@
       <option name="_new_target" value="&quot;&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.test-evaluation" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test-training" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Python.test-training-estimator" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test-evaluation" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test-training" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -391,16 +436,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test-evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3720">
-          <caret line="124" column="33" lean-forward="false" selection-start-line="124" selection-start-column="33" selection-end-line="124" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-extractor-training.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3480">
@@ -812,9 +847,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmp/nrppg/torch/TorchLossComputer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="179" column="19" lean-forward="false" selection-start-line="179" selection-start-column="19" selection-end-line="179" selection-end-column="19" />
+        <state relative-caret-position="499">
+          <caret line="184" column="23" lean-forward="true" selection-start-line="184" selection-start-column="23" selection-end-line="184" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-estimator-training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="258" column="73" lean-forward="false" selection-start-line="258" selection-start-column="73" selection-end-line="258" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#2601#1" expanded="false" />
+            <element signature="e#2603#2640#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

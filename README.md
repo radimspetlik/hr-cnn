@@ -66,6 +66,7 @@ We support only the following plug-and-play installation. You don't have to foll
 [INFO]Succesfully finished...
 ```
 *WARNING* - the scripts assume that the batch size corresponds to a sample size with which the LMDB dataset was created - in our case, this is 300 frames per sample.
+
 *WARNING* - note that in the BMVC paper, a SNR in equation (3) is presented as the extractor learning objective function. The first extractor network was learned with exactly this criterion. However, in the latest scripts presented in this repo (which were used in my diploma thesis available at https://dspace.cvut.cz/bitstream/handle/10467/77090/F3-DP-2018-Spetlik-Radim-robust_visual_heart_rate_estimation.pdf) a cross-entropy objective function is used.
 
 ## bob.rppg.base

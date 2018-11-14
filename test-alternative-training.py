@@ -1,4 +1,4 @@
-'''Pytorch training procedure of the HR Estimator
+'''Pytorch training procedure of the alternative optimization training for HR Extractor & Estimator
 
 Usage:
   %(prog)s  [--extractor-net-architecture=<string>]
@@ -267,7 +267,5 @@ if __name__ == '__main__':
     train_loader, validation_loader, train_ds, val_ds = prepare_loaders(rgb)
 
     losses = evaluate_model(extractor_model, estimator_model, model_name, losses, epoch_shift)
-
-    logger.info('Closing summary...')
 
     logger.info('Succesfully finished...')

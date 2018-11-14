@@ -55,7 +55,7 @@ We support only the following plug-and-play installation. You don't have to foll
 *WARNING* - the computations are very GPU memory-demanding. Running the test script requires at least 12GB of GPU memory. If you don't have enough memory, try changing the `batch_size` variable in the `test.py` script.	
 
 ### Extractor training 
-* Run the _extractor training_ test script with `python -u test-extractor-training.py --plot-after 10 --batch-size 300 --epochs 2 --lr 0.0001 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --net-architecture 'FaceHRNet09V4ELURGB'`. You should get the follwing results:
+* Run the _extractor training_ test script with `python -u test-extractor-training.py --plot-after 10 --batch-size 300 --epochs 2 --lr 0.0001 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --net-architecture 'FaceHRNet09V4ELURGB'`. You should get the following results:
 ```
 [INFO][0000][TRN] 5.294248 MAE: 39.3 MSE: 2127.2, 7056.0 (6s)
 [INFO][0000][VAL] 5.288296 MAE: 27.8 MSE: 1185.5, 3249.0
@@ -69,6 +69,30 @@ We support only the following plug-and-play installation. You don't have to foll
 
 *WARNING* - note that in the BMVC paper, a SNR in equation (3) is presented as the extractor learning objective function. The first extractor network was learned with exactly this criterion. However, in the latest scripts presented in this repo (which were used in my diploma thesis available at https://dspace.cvut.cz/bitstream/handle/10467/77090/F3-DP-2018-Spetlik-Radim-robust_visual_heart_rate_estimation.pdf) a cross-entropy objective function is used.
 
+### Alternative optimization - Extractor + Estimator training
+
+* Run the _alternative optimization training_ test script with `python -u test-alternative-training.py --plot-after 100 --batch-size 300 --epochs 2 --extractor-lr 0.00001 --estimator-lr 0.01 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --extractor-net-architecture 'FaceHRNet09V4ELURGB' --estimator-net-architecture 'SNREstimatorNetMonteCarlo' --extractor-model-path 'data/models/08-05-2018_23-04-07-384974_arch=FaceHRNet09V4ELURGB_lr=1E-05_batch-size=300_fine_tuning_extractor_val_mae_best' --estimator-model-path 'data/models/09-05-2018_09-52-57-210538_arch=SNREstimatorNetMonteCarlo_lr=1E-02_batch-size=300_fine-tuning_estimator_val_mae_best'`. You should get the following results:
+
+``
+[INFO][0000][VAL] MAE: 9.3 RMSE: 9.7
+[INFO][0000] Training extractor
+[INFO][0000][TRN] MAE: 9.3 RMSE: 9.8 (6s)
+[INFO][0000][VAL] MAE: 8.3 RMSE: 8.7
+[INFO][0001] Training extractor
+[INFO][0001][TRN] MAE: 8.2 RMSE: 8.6 (6s)
+[INFO][0001][VAL] MAE: 7.9 RMSE: 8.3
+[INFO][0002] Training estimator
+[INFO][0002][TRN] MAE: 9.5 RMSE: 10.4 (6s)
+[INFO][0002][VAL] MAE: 6.2 RMSE: 6.8
+[INFO]Succesfully finished...
+``
+
+## What's next?
+
+Now you have been given all the training & validation scripts used in my research. The scripts would need a lot of polishing. There is simply no time to do that. If you want to cooperate with me on making the scripts better, let me know, please. 
+
+If you miss some script, e.g. scripts for making the LMDB or h5 datasets, let me know, please.
+
 ## bob.rppg.base
 
-My scripts are using a minimalist hackish version of https://pypi.org/project/bob.rppg.base/. I am sorry for that. Be sure to checkout their repo. Just to be absolutely sure - everything you need from their repo to run my scripts is included in my repo.
+My scripts are using a minimalist hackish version of https://pypi.org/project/bob.rppg.base/. I am sorry for that. Be sure to check their repo. Just to be absolutely sure - everything you need from their repo to run my scripts is included in my repo.

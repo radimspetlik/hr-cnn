@@ -132,15 +132,16 @@ def validate(extractor_model, estimator_model):
     for batch_idx, (data, target) in enumerate(validation_loader):
         if cuda:
             data, target = data.cuda(async=True), target.cuda(async=True)
-        data, target = Variable(data, volatile=True), Variable(target, volatile=True)
+        with torch.no_grad():
+            data, target = Variable(data), Variable(target)
 
-        output = extractor_model(data).squeeze().unsqueeze(dim=0).unsqueeze(dim=0)
-        output = estimator_model(output).squeeze()
+            output = extractor_model(data).squeeze().unsqueeze(dim=0).unsqueeze(dim=0)
+            output = estimator_model(output).squeeze()
 
         target = torch.median(target * 60.0).type(torch.FloatTensor).cuda()
 
-        validation_abs_err = torch.abs(output - target)
-        validation_sq_err = (output - target) ** 2
+        validation_abs_err = torch.abs(output - target).view(1)
+        validation_sq_err = ((output - target) ** 2).view(1)
 
         if len(validation_sq_errs) == 0:
             validation_sq_errs = validation_sq_err

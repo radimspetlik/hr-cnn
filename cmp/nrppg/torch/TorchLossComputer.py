@@ -165,8 +165,8 @@ class TorchLossComputer(object):
     @staticmethod
     def cross_entropy_power_spectrum_loss(input, target, Fs, regularization_factor, cuda=True):
         input = input.view(1, -1)
-        target = target.view(1, -1)
-        bpm_range = torch.arange(40, 240)
+        target = target.view(1, -1).cuda()
+        bpm_range = torch.arange(40, 240).cuda()
 
         hr_target = Variable((torch.median(target).data * 60.0) - bpm_range[0]).type(torch.cuda.LongTensor)
         complex_absolute = TorchLossComputer.complex_absolute(input, Fs, bpm_range, cuda)

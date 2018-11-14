@@ -170,7 +170,9 @@ class TorchLossComputer(object):
         if cuda:
             bpm_range = bpm_range.cuda(async=True)
 
-        hr_target = Variable((torch.median(target).data * 60.0) - bpm_range[0]).type(torch.cuda.FloatTensor)
+        hr_target = Variable((torch.median(target).data * 60.0) -
+                             bpm_range[0]).type(
+            torch.FloatTensor)
         complex_absolute = TorchLossComputer.complex_absolute(input, Fs, bpm_range, cuda)
 
         whole_max_val, whole_max_idx = complex_absolute.view(-1).max(0)

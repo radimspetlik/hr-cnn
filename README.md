@@ -3,14 +3,6 @@ Spetlik, R., Franc, V., Cech, J. and Matas, J. (2018) Visual Heart Rate Estimati
 
 See http://cmp.felk.cvut.cz/~spetlrad/ecg-fitness/ for the original paper and the ECG-Fitness dataset.
 
-This repo is being constructed. You can monitor the progress bellow.
-
-## Progress
-- [x] Document the installation.
-- [x] Convert models to a reasonable format.
-- [x] Create public evaluation scripts.
-- [ ] Create public learning scripts.
-
 ## Installation
 We support only the following plug-and-play installation. You don't have to follow the steps bellow, but it may happen that it will not work :( This setup should work regardless of the operation system (i.e. Windows and Linux is OK).
 1. Clone the repo to a directory of your preference with `git clone git@github.com:radimspetlik/hr-cnn.git`.
@@ -69,7 +61,7 @@ We support only the following plug-and-play installation. You don't have to foll
 
 *WARNING* - note that in the BMVC paper, a SNR in equation (3) is presented as the extractor learning objective function. The first extractor network was learned with exactly this criterion. However, in the latest scripts presented in this repo (which were used in my diploma thesis available at https://dspace.cvut.cz/bitstream/handle/10467/77090/F3-DP-2018-Spetlik-Radim-robust_visual_heart_rate_estimation.pdf) a cross-entropy objective function is used.
 
-### Alternative optimization - Extractor + Estimator training
+### Alternative optimization = Extractor + Estimator training
 
 * Run the _alternative optimization training_ test script with `python -u test-alternative-training.py --plot-after 100 --batch-size 300 --epochs 2 --extractor-lr 0.00001 --estimator-lr 0.01 --x-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-train 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --x-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_X_lmdb' --y-lmdb-path-validation 'data/db/ecg-fitness_face_linear-192x128_batch-300_test-train_y_lmdb' --output-to 'data/models/' --plots-path 'data/plots/' --extractor-net-architecture 'FaceHRNet09V4ELURGB' --estimator-net-architecture 'SNREstimatorNetMonteCarlo' --extractor-model-path 'data/models/08-05-2018_23-04-07-384974_arch=FaceHRNet09V4ELURGB_lr=1E-05_batch-size=300_fine_tuning_extractor_val_mae_best' --estimator-model-path 'data/models/09-05-2018_09-52-57-210538_arch=SNREstimatorNetMonteCarlo_lr=1E-02_batch-size=300_fine-tuning_estimator_val_mae_best'`. You should get the following results:
 

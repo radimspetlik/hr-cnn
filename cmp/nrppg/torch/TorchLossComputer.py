@@ -16,7 +16,7 @@ class TorchLossComputer(object):
             hanning = hanning.cuda(async=True)
         output = output.view(1, -1) * hanning
         output = output.view(1, 1, -1).type(torch.FloatTensor)
-        k = k.view(1, -1, 1)
+        k = k.view(1, -1, 1).type(torch.FloatTensor)
         two_pi_n_over_N = two_pi_n_over_N.view(1, 1, -1)
         complex_absolute = torch.sum(output * torch.sin(k * two_pi_n_over_N), dim=-1) ** 2 \
                            + torch.sum(output * torch.cos(k * two_pi_n_over_N), dim=-1) ** 2

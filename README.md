@@ -10,15 +10,17 @@ We support only the following plug-and-play installation. You don't have to foll
 1. Install _miniconda_ http://lmgtfy.com/?q=miniconda+install.
 1. Run `conda env update --file environment.yml` *OR* manually:
 	1. Create a _Python 2.7_ environment _hr-cnn_ with `conda create -n hr-cnn python=2.7`.
-	1. Install _docopt_ with `conda install docopt`.
-	1. Install _scipy_ with `conda install scipy`
-	1. Install _h5py_ with `conda install h5py`
-	1. Install _opencv_ with `conda install opencv`
+	1. Install _docopt 0.6.2_ with `conda install docopt=0.6.2`.
+	1. Install _scipy 1.1.0_ with `conda install scipy=1.1.0`
+	1. Install _h5py 2.8.0_ with `conda install h5py=2.8.0`
+	1. Install _opencv 3.4.2_ with `conda install opencv=3.4.2`
 	1. Install _boost 1.65.1_ with `conda install boost=1.65.1`
-	1. Install _bob.blitz_ with `conda install bob.blitz`
-	1. Install _lmdb-python_ `conda install lmdb-python`
+	1. Install _bob.blitz 2.0.16_ with `conda install bob.blitz=2.0.16`
+	1. Install _pytorch 0.4.0_ `conda install pytorch=0.4.0`
+	1. Install _torchvision 0.2.1_ `conda install torchvision=0.2.1`
+	1. Install _pillow 6.0.0_ `conda install pillow=6.0.0`
+	1. Install _python-lmdb 0.94_ `conda install python-lmdb=0.94`
 1. Activate the environment with `source activate hr-cnn`.
-1. Install _Pytorch_ http://lmgtfy.com/?q=install+pytorch.	
 1. Add the data.
 	1. Download the models from https://goo.gl/nCdkBk and extract them to `data/models/`.
 	1. Copy the contents of the `bbox` directory (distributed in the 7zipped ECG Fitness database or available at https://goo.gl/aXDQiy) to `bob/db/ecg_fitness/data/bbox/`.

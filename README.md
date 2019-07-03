@@ -20,6 +20,7 @@ We support only the following plug-and-play installation. You don't have to foll
 	1. Install _torchvision 0.2.1_ `conda install torchvision=0.2.1`
 	1. Install _pillow 6.0.0_ `conda install pillow=6.0.0`
 	1. Install _python-lmdb 0.94_ `conda install python-lmdb=0.94`
+1. Make sure you have the _libav-tools_ library installed. If not, install with `sudo apt-get install libav-tools`
 1. Activate the environment with `source activate hr-cnn`.
 1. Add the data.
 	1. Download the models from https://goo.gl/nCdkBk and extract them to `data/models/`.

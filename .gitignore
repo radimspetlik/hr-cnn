@@ -1,5 +1,6 @@
 data/models/*
 *.pyc
+.idea
 *.h5
 bob/db/ecg_fitness/data/bbox/*
 

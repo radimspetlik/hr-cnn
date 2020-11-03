@@ -31,7 +31,7 @@ class ModelLoader(object):
             logger.info("Let's use %d GPUs!" % torch.cuda.device_count())
             model = torch.nn.DataParallel(model)
             torch.cuda.manual_seed(0)
-            torch.cuda.manual_seed_all(0)
+            torch.cuda.manual_seed_all(0)        
 
         return model, rgb
 
@@ -47,7 +47,7 @@ class ModelLoader(object):
 
         try:
             model.load_state_dict(state_dict)
-        except KeyError as e:
+        except RuntimeError as e:
             logger.warn('Was not able to load state_dictionary, trying to add/remove "module."...')
 
             # create new OrderedDict that does not contain `module.`
